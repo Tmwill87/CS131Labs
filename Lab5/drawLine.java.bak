@@ -1,0 +1,37 @@
+import java.awt.Graphics;
+import javax.swing.*;
+
+
+class drawLine extends JPanel
+{
+	public static void main(String[] args) 
+	{
+		drawLine panel = new drawLine();
+		JFrame application = new JFrame();
+
+
+		int line1sx = Integer.parseInt(JOptionPane.showInputDialog("Enter the x starting point for the first line"));
+		int line1sy = Integer.parseInt(JOptionPane.showInputDialog("Enter the y starting point for the first line"));
+		int line1ex = Integer.parseInt(JOptionPane.showInputDialog("Enter the x ending point for the first line"));
+		int line1ey = Integer.parseInt(JOptionPane.showInputDialog("Enter the y ending point for the first line"));
+		int line2sx = Integer.parseInt(JOptionPane.showInputDialog("Enter the x starting point for the second line"));
+		int line2sy = Integer.parseInt(JOptionPane.showInputDialog("Enter the y starting point for the second line"));
+		int line2ex = Integer.parseInt(JOptionPane.showInputDialog("Enter the x ending point for the second line"));
+		int line2ey = Integer.parseInt(JOptionPane.showInputDialog("Enter the y ending point for the second line"));
+		int line3sx = Integer.parseInt(JOptionPane.showInputDialog("Enter the x starting point for the third line"));
+		int line3sy = Integer.parseInt(JOptionPane.showInputDialog("Enter the y starting point for the third line"));
+		int line3ex = Integer.parseInt(JOptionPane.showInputDialog("Enter the x ending point for the third line"));
+		int line3ey = Integer.parseInt(JOptionPane.showInputDialog("Enter the y ending point for the third line"));
+		
+	}
+
+	public void printComponent(Graphics g)
+	{
+		super.paintComponent(g);
+
+		g.drawLine( line1sx, line1sy, line1ex, line1ey);
+		g.drawLine( line2sx, line2sy, line2ex, line2ey);
+		g.drawLine( line3sx, line3sy, line3ex, line3ey);
+	}
+
+}

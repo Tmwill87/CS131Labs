@@ -1,0 +1,26 @@
+import javax.swing.*;
+
+class reciept 
+{
+	public static void main(String[] args) 
+	{
+		check pay = new check();
+		JTextArea outputArea = new JTextArea();
+		String output = " ";
+		double net = pay.getOrder();
+		double total = net * 1.06;
+		System.out.println(net);	//Don't really need these
+		System.out.println(total);	//^^^^^^^^^^^^^^^^^^^^^^^
+		output = "Peperoni pizzas: "+ pay.pepPizza+"\nCheese pizzas: "+pay.cheesePizza+"\nEverything pizzas: "+pay.everyPizza+"\nStrombolis: "+pay.stromboli+"\nHam & cheese: "+pay.ham+"\nCokes: "+pay.coke+"\nPepsi: "+pay.pepsi+"\nDr Pepper: "+ pay.drP+"\n\nSubtotal: "+net+"\nTotal: "+total;
+		System.out.println(output);
+		outputArea.setText(output);
+		JOptionPane.showMessageDialog(null, outputArea, "Total", JOptionPane.INFORMATION_MESSAGE);
+		double paid = Double.parseDouble(JOptionPane.showInputDialog("How much did the customer pay with?"));
+		String change = pay.giveChange(paid, total);
+		System.out.println(change);
+		output = "you give the customer their change in the form of \n"+change;
+		outputArea.setText(output);
+		JOptionPane.showMessageDialog(null, outputArea, "Total", JOptionPane.INFORMATION_MESSAGE);
+		
+	}
+}

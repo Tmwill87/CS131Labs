@@ -1,0 +1,89 @@
+import javax.swing.*;
+
+class check 
+{
+	public static int pepPizza, cheesePizza, everyPizza, stromboli, ham, coke, pepsi, drP, totalDrinks;
+	public double price;
+	public check(){
+		//constructor
+	} 
+
+	public double getOrder(){
+		String pizza1 = JOptionPane.showInputDialog("Would you like a pizza?"); //Pizza
+		if (pizza1.startsWith("y") || pizza1.startsWith("Y"))
+		{
+			pepPizza = Integer.parseInt(JOptionPane.showInputDialog("How many peperoni pizzas would you like?"));
+			cheesePizza = Integer.parseInt(JOptionPane.showInputDialog("How many cheese pizzas would you like?"));
+			everyPizza = Integer.parseInt(JOptionPane.showInputDialog("How many everything pizzas would you like?"));
+			
+		}
+		String sandwich1 = JOptionPane.showInputDialog("Would you like a sandwich?");
+		if (sandwich1.startsWith("y") || sandwich1.startsWith("Y"))
+		{
+			String sandwich2 = JOptionPane.showInputDialog("Would you like a ham & cheese or a stromboli?");
+			if (sandwich2.startsWith("h") || sandwich2.startsWith("H"))
+			{
+				ham = Integer.parseInt(JOptionPane.showInputDialog("How many ham and cheese sandwiches would you like?"));
+			}
+			else if (sandwich2.startsWith("s") || sandwich2.startsWith("S"))
+			{
+				ham = Integer.parseInt(JOptionPane.showInputDialog("How many strombolis would you like?"));
+			}
+			else
+			{
+				sandwich2 = JOptionPane.showInputDialog("Would you like a ham & cheese or a stromboli?");//User erros
+			}
+		}
+		String drink1 = JOptionPane.showInputDialog("Would you like a drink? (We have Coke, Pepsi, and Dr Pepper)");
+		if (drink1.startsWith("y") || drink1.startsWith("Y"))
+		{
+			coke = Integer.parseInt(JOptionPane.showInputDialog("How many cokes would you like?"));
+			pepsi = Integer.parseInt(JOptionPane.showInputDialog("How many Pepsis would you like?"));
+			drP = Integer.parseInt(JOptionPane.showInputDialog("How many Dr Peppers would you like?"));
+		}
+		else if (drink1.startsWith("n") || drink1.startsWith("N"))
+		{
+			totalDrinks = 0;
+		}
+		else
+		{
+			drink1 = JOptionPane.showInputDialog("Would you like a drink? (We have Coke, Pepsi, and Dr Pepper)");//User error
+		}
+		price += (pepPizza * 10);
+		price += (cheesePizza * 8);
+		price += (everyPizza * 12);
+		price += (stromboli * 7);
+		price += (ham * 6);
+		price += (coke * 1);
+		price += (pepsi * 1);
+		price += (drP * 1);
+		return price;
+	
+	}
+	
+	public String giveChange(double paid, double cost){
+		String change = " ";
+		double ch = paid - cost;
+		change = (int)(ch / 20)+" $20 bills\n";
+		ch %= 20;
+		change += (int)(ch / 10)+" $10 bills\n";
+		ch %= 10;
+		change += (int)(ch / 5)+" $5 bills\n";
+		ch %= 5;
+		change += (int)(ch / 1)+" $1 bills\n";
+		ch %= 1;
+		change += (int)(ch / .25)+" quarters\n";
+		ch %= .25;
+		change += (int)(ch / .10)+" dimes\n";
+		ch %= .10;
+		change += (int)(ch / .05)+" nickels\n";
+		ch %= .05;
+		change += (int)(ch / .01)+" pennies\n";
+		ch %= .01;
+		return change;
+	}
+	
+
+	
+
+}

@@ -1,0 +1,52 @@
+import javax.swing.*;
+import java.awt.Graphics;
+
+class drawShapes extends JPanel
+{
+
+	static int choice, lines, linee;
+	static int start, width, height;
+	static int startx, starty, endx, endy;
+	static int x, y, wide, high; //Because I can't use width and height
+
+	public void paintComponent(Graphics g)
+	{
+		super.paintComponent(g);
+
+		if (choice == 1)
+		{
+			g.drawLine(startx, starty, endx, endy);
+		}
+		if (choice == 2)
+		{
+			g.drawRect(x, y, wide, high);
+		}
+	}
+
+	public static void main(String[] args) 
+	{
+		drawShapes panel = new drawShapes();
+		JFrame application = new JFrame();
+
+		choice = Integer.parseInt(JOptionPane.showInputDialog("Enter 1 to draw a line or 2 to draw a rectangle"));
+		if(choice == 1)
+		{
+			startx = Integer.parseInt(JOptionPane.showInputDialog("Enter the starting x point for the line"));
+			starty = Integer.parseInt(JOptionPane.showInputDialog("Enter the starting y point for the line"));
+			endx = Integer.parseInt(JOptionPane.showInputDialog("Enter the ending x point for the line"));
+			endy = Integer.parseInt(JOptionPane.showInputDialog("Enter the ending y point for the line"));
+		}
+		if(choice == 2)
+		{
+			x = Integer.parseInt(JOptionPane.showInputDialog("Enter the starting x point for the rectangle"));
+			y = Integer.parseInt(JOptionPane.showInputDialog("Enter the starting y point for the rectangle"));
+			wide = Integer.parseInt(JOptionPane.showInputDialog("Enter the width for the rectangle"));
+			high = Integer.parseInt(JOptionPane.showInputDialog("Enter the height for the rectangle"));
+		}
+
+		application.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
+		application.add( panel );
+		application.setSize( 500, 500 );
+		application.setVisible( true );
+	}
+}

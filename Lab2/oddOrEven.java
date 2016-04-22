@@ -1,0 +1,24 @@
+import javax.swing.*;
+
+class oddOrEven 
+{
+	public static void main(String[] args) 
+	{
+		int[] numbers = new int[10];
+		String output = "Number\tEven or Odd";
+		JTextArea outputArea = new JTextArea();
+		for(int i = 0; i < 10; i++)
+		{
+			numbers[i] = Integer.parseInt(JOptionPane.showInputDialog("Enter "+(10-i)+" more numbers"));
+		}
+		for (int j = 0;j<numbers.length;j++ )
+		{
+			if(numbers[j] % 2 == 0)
+				output += "\n"+numbers[j]+"\tEven";
+			else
+				output += "\n"+numbers[j]+"\tOdd";
+		}
+		outputArea.setText(output);
+		JOptionPane.showMessageDialog(null, outputArea, "Odd or even", JOptionPane.INFORMATION_MESSAGE);
+	}
+}
